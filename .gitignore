@@ -1,2 +1,8 @@
 #MODULES
 node_modules
+
+#ENVIRONMENT
+.env
+
+#BUILD
+build
