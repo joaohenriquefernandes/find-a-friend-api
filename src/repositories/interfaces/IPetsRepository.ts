@@ -1,6 +1,6 @@
 import { Pet, Prisma } from '@prisma/client';
 
-interface IFindAllParams {
+export interface IFindAllParams {
   age?: string;
   city: string;
   energy_level?: string;
