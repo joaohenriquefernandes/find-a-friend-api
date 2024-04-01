@@ -16,4 +16,5 @@ export interface IOrgsRepository {
     whatsapp,
   }: Prisma.OrgUncheckedCreateInput) => Promise<Org>;
   findByEmail: (email: string) => Promise<Org | null>;
+  findManyNearby: (latitude: number, longitude: number) => Promise<Org[]>;
 }
