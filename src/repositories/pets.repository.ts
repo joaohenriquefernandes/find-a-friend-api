@@ -1,6 +1,6 @@
 import { Pet, Prisma } from '@prisma/client'
 
-interface IFindAllParams {
+export interface IFindAllParams {
   city: string
   age?: string
   size?: string
@@ -11,5 +11,5 @@ interface IFindAllParams {
 export interface IPetsRepository {
   create: (data: Prisma.PetUncheckedCreateInput) => Promise<Pet>
   findAll: (params: IFindAllParams) => Promise<Pet[]>
-  findById: (id: string) => Promise<Pet[]>
+  findById: (id: string) => Promise<Pet | null>
 }
