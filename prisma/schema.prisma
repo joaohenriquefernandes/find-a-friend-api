@@ -41,7 +41,7 @@ model Pet {
   age          String
   size         String
   energy_level String
-  enviroment   String
+  environment  String
   orgId        String
 
   org Org @relation(fields: [orgId], references: [id])
