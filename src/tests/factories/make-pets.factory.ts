@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker'
 import { randomUUID } from 'node:crypto'
 
 type Overwrite = {
-  org_id?: string
+  orgId?: string
   age?: string
   size?: string
   energy_level?: string
@@ -12,7 +12,7 @@ type Overwrite = {
 export function makePet(overwrite?: Overwrite) {
   return {
     id: randomUUID(),
-    org_id: overwrite?.org_id ?? randomUUID(),
+    orgId: overwrite?.orgId ?? randomUUID(),
     name: faker.animal.dog(),
     about: faker.lorem.paragraph(),
     age: overwrite?.age ?? faker.number.int().toString(),

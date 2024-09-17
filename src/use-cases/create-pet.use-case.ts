@@ -10,7 +10,7 @@ interface ICreatePetUseCaseRequest {
   size: string
   energy_level: string
   environment: string
-  org_id: string
+  orgId: string
 }
 
 interface ICreatePetUseCaseReply {
@@ -29,10 +29,10 @@ export default class CreatePetUseCase {
     energy_level,
     environment,
     name,
-    org_id,
+    orgId,
     size,
   }: ICreatePetUseCaseRequest): Promise<ICreatePetUseCaseReply> {
-    const isOrgExists = await this.orgsRepository.findById(org_id)
+    const isOrgExists = await this.orgsRepository.findById(orgId)
 
     if (!isOrgExists) {
       throw new OrgNotFoundError()

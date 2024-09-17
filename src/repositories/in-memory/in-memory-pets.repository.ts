@@ -6,7 +6,7 @@ import { InMemoryOrgsRepository } from './in-memory-orgs.repository'
 export class InMemoryPetsRepository implements IPetsRepository {
   public items: Pet[] = []
 
-  constructor(readonly orgsRepository: InMemoryOrgsRepository) {}
+  constructor(readonly orgsRepository?: InMemoryOrgsRepository) {}
 
   async create(data: Prisma.PetUncheckedCreateInput): Promise<Pet> {
     const pet = {
@@ -20,12 +20,12 @@ export class InMemoryPetsRepository implements IPetsRepository {
   }
 
   async findAll(params: IFindAllParams): Promise<Pet[]> {
-    const orgByCity = this.orgsRepository.items.filter(
+    const orgByCity = this.orgsRepository?.items.filter(
       (org) => org.city === params.city,
     )
 
     const pets = this.items
-      .filter((pet) => orgByCity.some((org) => org.id === pet.orgId))
+      .filter((pet) => orgByCity?.some((org) => org.id === pet.orgId))
       .filter((pet) => (params.age ? pet.age === params.age : true))
       .filter((pet) => (params.size ? pet.size === params.size : true))
       .filter((pet) =>

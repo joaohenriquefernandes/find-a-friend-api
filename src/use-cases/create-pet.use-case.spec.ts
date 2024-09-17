@@ -20,7 +20,7 @@ describe('Create Pet Use Case', () => {
   it('should be able to create a new pet', async () => {
     const org = await orgsRepository.create(makeOrg())
 
-    const { pet } = await createPetUseCase.execute(makePet({ org_id: org.id }))
+    const { pet } = await createPetUseCase.execute(makePet({ orgId: org.id }))
 
     expect(petsRepository.items).toHaveLength(1)
     expect(pet.id).toEqual(expect.any(String))
